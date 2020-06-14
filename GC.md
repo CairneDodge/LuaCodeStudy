@@ -25,3 +25,5 @@
         增量式算法，标记时黑色对象引用的对象中有白色对象，2中处理
             向前一步：将新增对象的颜色从白色变为灰色 （除了table的对象）
             向后一步：将黑色的对象回退到灰色，重新扫描对象 （table回退时，直接加入到graygain链表中）
+        标记完后切换到atomic操作：原子操作标记完后，切换GC的白色，修改状态到下个阶段
+    GCSsweepstring GCSsweepudata GCSsweep：切换为GCSpause
